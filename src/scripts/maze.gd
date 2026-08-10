@@ -18,18 +18,16 @@ func get_spawn() -> Vector2:
 
 
 func _on_area_body_entered(_body: Node2D, area_direction: String) -> void:
-	area_entered.emit(area_direction)
-
-
-func get_area(area_direction: String) -> Vector2:
+	var new_position
 	match area_direction:
 		"top":
-			return bottom.position
+			new_position = bottom.position
 		"right":
-			return left.position
+			new_position = left.position
 		"bottom":
-			return top.position
+			new_position = top.position
 		"left":
-			return right.position
+			new_position = right.position
 		_:
-			return marker_2d.position
+			new_position = marker_2d.position
+	area_entered.emit(area_direction, new_position)

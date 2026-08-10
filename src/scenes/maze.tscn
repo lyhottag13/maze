@@ -47,7 +47,7 @@ position = Vector2(1167, 654)
 position = Vector2(974, 841)
 
 [node name="Left" type="Marker2D" parent="Node" unique_id=918465689]
-position = Vector2(778, 658)
+position = Vector2(791, 660)
 
 [node name="Node2" type="Node" parent="." unique_id=1672141834]
 
