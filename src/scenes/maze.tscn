@@ -1,0 +1,81 @@
+[gd_scene format=3 uid="uid://boe2epq11k7b0"]
+
+[ext_resource type="Texture2D" uid="uid://ci2vy7p2tp766" path="res://assets/background/background.png" id="1_ljra5"]
+[ext_resource type="Script" uid="uid://ceehmqaanwjdo" path="res://src/scripts/maze.gd" id="1_xvv2i"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvv2i"]
+size = Vector2(192, 56)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aejpv"]
+size = Vector2(76, 158)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7afsq"]
+size = Vector2(76, 158)
+
+[node name="Maze" type="Node2D" unique_id=587460203]
+script = ExtResource("1_xvv2i")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=1605217064]
+offset_right = 1920.0
+offset_bottom = 1080.0
+color = Color(0, 0, 0, 1)
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=607268733]
+position = Vector2(994.00006, 538)
+scale = Vector2(0.8826987, 0.8826987)
+texture = ExtResource("1_ljra5")
+
+[node name="Marker2D" type="Marker2D" parent="." unique_id=1479122939]
+position = Vector2(970, 672)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="." unique_id=1632323238]
+collision_layer = 2
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="StaticBody2D" unique_id=1134062537]
+build_mode = 1
+polygon = PackedVector2Array(689, 445, 1262, 445, 1246, 905, 716, 908)
+
+[node name="Node" type="Node" parent="." unique_id=1959503855]
+
+[node name="Top" type="Marker2D" parent="Node" unique_id=126830513]
+position = Vector2(965, 515)
+
+[node name="Right" type="Marker2D" parent="Node" unique_id=2064996372]
+position = Vector2(1167, 654)
+
+[node name="Bottom" type="Marker2D" parent="Node" unique_id=1610515930]
+position = Vector2(974, 841)
+
+[node name="Left" type="Marker2D" parent="Node" unique_id=918465689]
+position = Vector2(778, 658)
+
+[node name="Node2" type="Node" parent="." unique_id=1672141834]
+
+[node name="TopArea" type="Area2D" parent="Node2" unique_id=2120215452]
+position = Vector2(965, 441)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/TopArea" unique_id=1948519523]
+shape = SubResource("RectangleShape2D_xvv2i")
+
+[node name="RightArea" type="Area2D" parent="Node2" unique_id=2055165561]
+position = Vector2(1259, 651)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/RightArea" unique_id=319939929]
+shape = SubResource("RectangleShape2D_aejpv")
+
+[node name="BottomArea" type="Area2D" parent="Node2" unique_id=759275804]
+position = Vector2(975, 904)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/BottomArea" unique_id=1918361430]
+shape = SubResource("RectangleShape2D_xvv2i")
+
+[node name="LeftArea" type="Area2D" parent="Node2" unique_id=1078869573]
+position = Vector2(696, 655)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Node2/LeftArea" unique_id=718915428]
+shape = SubResource("RectangleShape2D_7afsq")
+
+[connection signal="body_entered" from="Node2/TopArea" to="." method="_on_area_body_entered" binds= ["top"]]
+[connection signal="body_entered" from="Node2/RightArea" to="." method="_on_area_body_entered" binds= ["right"]]
+[connection signal="body_entered" from="Node2/BottomArea" to="." method="_on_area_body_entered" binds= ["bottom"]]
+[connection signal="body_entered" from="Node2/LeftArea" to="." method="_on_area_body_entered" binds= ["left"]]
