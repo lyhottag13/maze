@@ -18,6 +18,7 @@ script = ExtResource("1_xvv2i")
 [node name="ColorRect" type="ColorRect" parent="." unique_id=1605217064]
 offset_right = 1920.0
 offset_bottom = 1080.0
+mouse_filter = 2
 color = Color(0, 0, 0, 1)
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=607268733]

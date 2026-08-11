@@ -13,6 +13,9 @@ config_version=5
 config/name="maze"
 run/main_scene="uid://brd3p7agg84i3"
 config/features=PackedStringArray("4.6", "Forward Plus")
+boot_splash/bg_color=Color(0, 0, 0, 1)
+boot_splash/stretch_mode=0
+boot_splash/image="uid://ci2vy7p2tp766"
 config/icon="res://icon.svg"
 
 [autoload]
